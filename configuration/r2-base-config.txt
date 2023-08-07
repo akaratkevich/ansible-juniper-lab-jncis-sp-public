@@ -1,0 +1,5 @@
+set interfaces ge-0/0/0 description "Link from R2 to R1"
+set interfaces ge-0/0/0 unit 0 family inet address 10.0.0.2/24
+set interfaces ge-0/0/1 description "Link from R2 to R3"
+set interfaces ge-0/0/1 unit 0 family inet address 10.0.1.2/24
+

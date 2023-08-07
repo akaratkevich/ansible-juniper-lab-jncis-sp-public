@@ -1,0 +1,15 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+
+# Expecting the nodes variable to be passed as an argument
+set nodes [lindex $argv 0]
+
+spawn ./scripts/deploy-conf-file -config ./configuration/sshRSA.cfg
+
+expect "Enter the Juniper nodes (IP addresses or hostnames):seperated by comma"
+
+send -- "$nodes\r"
+
+expect eof
+

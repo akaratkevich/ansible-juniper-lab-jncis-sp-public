@@ -1,0 +1,13 @@
+{% if hostname == 'r1' %}
+set interfaces ge-0/0/0 description "{{ int_ge0_0_0 }}"
+set interfaces ge-0/0/1 unit 0 family inet address {{ ip_ge0_0_0}}
+{% elif hostname == 'r2' %}
+set interfaces ge-0/0/0 description "{{ int_ge0_0_0 }}"
+set interfaces ge-0/0/0 unit 0 family inet address {{ ip_ge0_0_0}}
+set interfaces ge-0/0/1 description "{{ int_ge0_0_1}}"
+set interfaces ge-0/0/1 unit 0 family inet address {{ ip_ge0_0_1 }}
+{% elif hostname == 'r3' %}
+set interfaces ge-0/0/1 description "{{ int_ge0_0_1}}"
+set interfaces ge-0/0/1 unit 0 family inet address {{ ip_ge0_0_1 }}
+{% endif %}
+

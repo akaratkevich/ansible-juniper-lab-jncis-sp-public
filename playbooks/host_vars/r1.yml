@@ -1,0 +1,7 @@
+---
+hostname: r1
+
+# general vars
+int_ge0_0_0: "Link from R1 to R2"
+ip_ge0_0_0: 10.0.0.1/24
+
