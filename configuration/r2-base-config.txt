@@ -1,5 +1,8 @@
-set interfaces ge-0/0/0 description "Link from R2 to R1"
+set interfaces ge-0/0/0 description "Link from R2 to R1 - primary"
 set interfaces ge-0/0/0 unit 0 family inet address 10.0.0.2/24
 set interfaces ge-0/0/1 description "Link from R2 to R3"
 set interfaces ge-0/0/1 unit 0 family inet address 10.0.1.2/24
+set interfaces ge-0/0/2 description "link from R2 to R1 - secondary"
+set interfaces ge-0/0/2 unit 0 family inet address 10.20.20.2/24
+set interfaces lo0 unit 0 family inet address 10.100.100.2/32
 
