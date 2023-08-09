@@ -1,6 +1,6 @@
 # Service Provider Routing and Switching, Specialist (JNCIS-SP) (JN0-363) -- Labs
 
->"I hear and I forget. I see and I remember. I do and I understand." – Confucius.
+>"I hear and I forget. I see and I remember. I do and I understand." – Confucius
 
 These labs are part of my preparation for [JNCIS-SP](https://www.juniper.net/gb/en/training/certification/tracks/service-provider-routing-switching/jncis-sp.html) certification. 
 The intention was to create a series of readily available labs, encompassing all conceivable topics related to this exam track, that I was able to replicate in this virtualised environment."
