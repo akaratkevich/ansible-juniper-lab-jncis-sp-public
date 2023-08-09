@@ -31,6 +31,8 @@ Using Makefile, each lab is set up with the appropriate topology and foundationa
 >
 >Please make sure to verify and update any paths and username referenced in any playbooks, scripts or variables
 
+---
+
 ## Protocol-Independent Routing
 
 This lab covers the learning objectives for Protocol-Independent Routing.
