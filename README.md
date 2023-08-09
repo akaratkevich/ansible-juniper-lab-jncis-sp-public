@@ -48,7 +48,184 @@ Lab is destroyed by running the following command:
 ```
 make stop-pir
 ```
-Demo of staring the lab:
+
+### Objectives
+
+- Static, aggregate, and generated routes
+- Configuration and monitoring of static, aggregate, and generated routes
+- Martian routes and how to add new entries to the default list
+- Routing instances and their typical uses
+- Configuration and sharing of routes between routing instances
+
+---
+
+## Open Shortest Path First
+This lab covers the learning objectives for OSPF.
+
+This is the lab topology diagram:
+
+![Topology](pictures/ospf-topology.png)
+
+Lab is deployed by running the following command:
+```
+make start-ospf
+```
+
+Lab is destroyed by running the following command:
+```
+make stop-ospf
+```
+### Objectives
+- OSPF protocol operations
+- Purpose of the designated router (DR)
+- OSPF area types
+- Configuration, monitoring, and troubleshooting of OSPF
+
+---
+
+## Intermediate System to Intermediate System
+This lab covers the learning objectives for ISIS.
+
+This is the lab topology diagram:
+
+![Topology](pictures/isis-topology.png)
+
+Lab is deployed by running the following command:
+```
+make start-isis
+```
+
+Lab is destroyed by running the following command:
+```
+make stop-isis
+```
+### Objectives
+
+- IS-IS protocol operations
+- IS-IS protocol data unit (PDUs)
+- The purpose of the designated intermediate systems
+- Configuration, monitoring, and troubleshooting of IS-IS
+
+---
+
+## Border Gateway Protocol
+This lab covers the learning objectives for BGP.
+
+This is the lab topology diagram:
+
+![Topology](pictures/bgp-topology.png)
+
+Lab is deployed by running the following command:
+```
+make start-bgp
+```
+
+Lab is destroyed by running the following command:
+```
+make stop-bgp
+```
+### Objectives
+- Border Gateway Protocol (BGP) operations
+- Common BGP attributes
+- The BGP route selection algorithm
+- BGP peering options and the default route advertisement rules
+- Configuration and monitoring of BGP
+
+---
+
+## Layer 2 Bridging
+This lab covers the learning objectives for l2.
+
+This is the lab topology diagram:
+
+![Topology](pictures/l2-topology.png)
+
+Lab is deployed by running the following command:
+```
+make start-l2
+```
+
+Lab is destroyed by running the following command:
+```
+make stop-l2
+```
+### Objectives
+
+- The functions of an Ethernet LAN;
+- Learning and forwarding in a bridging environment;
+- Implementation of virtual LAN (VLAN) tagging;
+- Automation of VLAN administration through Multiple VLAN Registration Protocol (MVRP);
+- Implementation of integrated routing and bridging (IRB);
+- Implementation of Layer 2 address learning and forwarding; and
+- Implementation of Layer 2 firewall filters.
+---
+
+## Spanning-Tree Protocols
+This lab covers the learning objectives for STP.
+
+This is the lab topology diagram:
+
+![Topology](pictures/stp-topology.png)
+
+Lab is deployed by running the following command:
+```
+make start-stp
+```
+
+Lab is destroyed by running the following command:
+```
+make stop-stp
+```
+### Objectives
+
+---
+
+## Multiprotocol Label Switching
+This lab covers the learning objectives for MPLS.
+
+This is the lab topology diagram:
+
+![Topology](pictures/mpls-topology.png)
+
+Lab is deployed by running the following command:
+```
+make start-mpls
+```
+
+Lab is destroyed by running the following command:
+```
+make stop-mpls
+```
+### Objectives
+
+---
+## IPv6
+### Objectives
+- Differences between IP version 4 (IPv4) and IP version 6 (IPv6)
+- IPv6 address types and addressing format
+- IPv6 interface configuration
+- Routing configuration for IPv6 environments
+- Tunneling IPv6 traffic over an IPv4 network
+
+---
+
+## Tunnels
+### Objectives
+- IP tunneling concepts and applications
+- Basic operations of generic routing encapsulation (GRE) and IP over IP (IP-IP) tunnels
+- Configuration and monitoring of GRE and IP-IP tunnels
+
+---
+
+## High Availability
+### Objectives
+- Characteristics of high availability (HA) networks
+- Some high availability features
+- Configuration and monitoring of some high availability features
+
+---
+
+## Demo of staring the lab:
 
 ```
 anton@mcc:~/git_hub/ansible-juniper-lab-jncis-sp-public$ make start-pir 
@@ -265,159 +442,3 @@ Lab setup complete with basic configuration
 - Load balancing
 - Filter-based forwarding
 ```
-
-### Objectives
-
-- Static, aggregate, and generated routes
-- Configuration and monitoring of static, aggregate, and generated routes
-- Martian routes and how to add new entries to the default list
-- Routing instances and their typical uses
-- Configuration and sharing of routes between routing instances
-
----
-
-## Open Shortest Path First
-This lab covers the learning objectives for OSPF.
-
-This is the lab topology diagram:
-
-![Topology](pictures/ospf-topology.png)
-
-Lab is deployed by running the following command:
-```
-make start-ospf
-```
-
-Lab is destroyed by running the following command:
-```
-make stop-ospf
-```
-### Objectives
-- OSPF protocol operations
-- Purpose of the designated router (DR)
-- OSPF area types
-- Configuration, monitoring, and troubleshooting of OSPF
-
----
-
-## Intermediate System to Intermediate System
-This lab covers the learning objectives for ISIS.
-
-This is the lab topology diagram:
-
-![Topology](pictures/isis-topology.png)
-
-Lab is deployed by running the following command:
-```
-make start-isis
-```
-
-Lab is destroyed by running the following command:
-```
-make stop-isis
-```
-### Objectives
-
----
-
-## Border Gateway Protocol
-This lab covers the learning objectives for BGP.
-
-This is the lab topology diagram:
-
-![Topology](pictures/bgp-topology.png)
-
-Lab is deployed by running the following command:
-```
-make start-bgp
-```
-
-Lab is destroyed by running the following command:
-```
-make stop-bgp
-```
-### Objectives
-- Border Gateway Protocol (BGP) operations
-- Common BGP attributes
-- The BGP route selection algorithm
-- BGP peering options and the default route advertisement rules
-- Configuration and monitoring of BGP
-
----
-
-## Layer 2 Bridging
-This lab covers the learning objectives for l2.
-
-This is the lab topology diagram:
-
-![Topology](pictures/l2-topology.png)
-
-Lab is deployed by running the following command:
-```
-make start-l2
-```
-
-Lab is destroyed by running the following command:
-```
-make stop-l2
-```
-### Objectives
-
----
-
-## Spanning-Tree Protocols
-This lab covers the learning objectives for STP.
-
-This is the lab topology diagram:
-
-![Topology](pictures/stp-topology.png)
-
-Lab is deployed by running the following command:
-```
-make start-stp
-```
-
-Lab is destroyed by running the following command:
-```
-make stop-stp
-```
-### Objectives
-
----
-
-## Multiprotocol Label Switching
-This lab covers the learning objectives for MPLS.
-
-This is the lab topology diagram:
-
-![Topology](pictures/mpls-topology.png)
-
-Lab is deployed by running the following command:
-```
-make start-mpls
-```
-
-Lab is destroyed by running the following command:
-```
-make stop-mpls
-```
-### Objectives
-
----
-## IPv6
-### Objectives
-
----
-
-## Tunnels
-### Objectives
-- IP tunneling concepts and applications;
-- Basic operations of generic routing encapsulation (GRE) and IP over IP (IP-IP) tunnels; and
-- Configuration and monitoring of GRE and IP-IP tunnels.
-
----
-
-## High Availability
-### Objectives
-
----
