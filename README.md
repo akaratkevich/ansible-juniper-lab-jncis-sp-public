@@ -1,5 +1,6 @@
 
->[!INFO] These labs are part of my preparation for [JNCIS-SP](https://www.juniper.net/gb/en/training/certification/tracks/service-provider-routing-switching/jncis-sp.html) certification. 
+>[!INFO]
+> These labs are part of my preparation for [JNCIS-SP](https://www.juniper.net/gb/en/training/certification/tracks/service-provider-routing-switching/jncis-sp.html) certification. 
 Learn by doing has always been my approach to learning. The idea here was to have multiple labs available that cover all possible topics in this exam track (*limited by virtualization caveats*) 
 
 
