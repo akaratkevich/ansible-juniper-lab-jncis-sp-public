@@ -1,27 +1,28 @@
+# Service Provider Routing and Switching, Specialist (JNCIS-SP) (JN0-363) -- Labs
 
->[!INFO]
+>"I hear and I forget. I see and I remember. I do and I understand." – Confucius.
+
+These labs are part of my preparation for [JNCIS-SP](https://www.juniper.net/gb/en/training/certification/tracks/service-provider-routing-switching/jncis-sp.html) certification. 
+The intention was to create a series of readily available labs, encompassing all conceivable topics related to this exam track, that I was able to replicate in this virtualised environment."
+
+
+The labs are broken down by [exam topics](https://www.juniper.net/gb/en/training/certification/tracks/service-provider-routing-switching/jncis-sp.html)
+
+- [Protocol-Independent Routing](#protocol-independent-routing)
+- [Open Shortest Path First (OSPF)](#open-shortest-path-first)
+- [Intermediate System to Intermediate System (IS-IS)](#intermediate-system-to-intermediate-system)
+- [Border Gateway Protocol (BGP)](#border-gateway-protocol)
+- [Layer 2 Bridging or VLANs](#layer-2-bridging)
+- [Spanning-Tree Protocols](#spanning-tree-protocols)
+- [Multiprotocol Label Switching (MPLS)](#multiprotocol-label-switching)
+- [IPv6](#ipv6)
+- [Tunnels](#tunnels)
+- [High Availability](#high-availability)
+
+Using Makefile, each lab is set up with the appropriate topology and foundational configuration using Containerlab, in conjunction with Ansible and a selection of other scripts and tools. The base configuration includes essential prerequisites like interface descriptions and IP assignments, enabling you to dive directly into the specific learning objectives in question.
+
+>PREREQUISITES:
 >
->These labs are part of my preparation for [JNCIS-SP](https://www.juniper.net/gb/en/training/certification/tracks/service-provider-routing-switching/jncis-sp.html) certification. 
->Learn by doing has always been my approach to learning. The idea here was to have multiple labs readily available that cover all possible topics in this exam track (*limited by virtualization caveats*) 
-
----
-
-The labs are broken down by [exam objectives](https://www.juniper.net/gb/en/training/certification/tracks/service-provider-routing-switching/jncis-sp.html)
-
-- Protocol-Independent Routing
-- Open Shortest Path First (OSPF)
-- Intermediate System to Intermediate System (IS-IS)
-- Border Gateway Protocol (BGP)
-- Layer 2 Bridging or VLANs
-- Spanning-Tree Protocols
-- Multiprotocol Label Switching (MPLS)
-- IPv6
-- Tunnels
-- High Availability
-
-Individual labs are deployed with the suitable topology and base configuration via Makefile, on the back of the [Containerlab](https://containerlab.dev/) with Ansible and few other scripts. Base configuration refers to any prerequisites, such as interface description, ip assignments etc. to allow you jump straight into the learning objective(s) in question. 
-
->[!PREREQUISITES]
 > - [Containerlab](https://containerlab.dev/)
 > - [Ansible](https://www.juniper.net/documentation/us/en/software/junos-ansible/ansible/topics/concept/junos-ansible-modules-overview.html)
 > - [Docker images](https://www.redhat.com/en/topics/containers/what-is-docker?sc_cid=7013a0000026OQwAAM&gclid=CjwKCAjw8symBhAqEiwAaTA__FWw8RjodY_dtI7BjNtE4cNU8Lw48xDIH7Qn6Q_X-YUQH4yvjB8bdRoCmBEQAvD_BwE&gclsrc=aw.ds)
@@ -30,7 +31,8 @@ Individual labs are deployed with the suitable topology and base configuration v
 > - Very possible that I may have missed some of the prerequisites as these labs are built in my pre-existing lab environment :)  
 
 
->[!ADMINISTRATION]
+>ADMINISTRATION:
+>
 >Please make sure to verify and update any paths and username referenced in any playbooks, scripts or variables
 
 ## Protocol-Independent Routing
@@ -758,3 +760,14 @@ PING 172.20.0.1 (172.20.0.1): 56 data bytes
 2 packets transmitted, 2 packets received, 0% packet loss
 round-trip min/avg/max/stddev = 1.257/1.349/1.441/0.092 ms
 ```
+
+## Open Shortest Path First
+## Intermediate System to Intermediate System
+## Border Gateway Protocol
+## Layer 2 Bridging
+## Spanning-Tree Protocols
+## Multiprotocol Label Switching
+## IPv6
+## Tunnels
+## High Availability
+
