@@ -33,7 +33,9 @@ Individual labs are deployed with base configuration via Makefile, on the back o
 
 The first lab covers the learning objectives for Protocol-Independent Routing.
 
-Lab consists of 3x VR-VMX nodes: - please refer to clab topology file for details <mark style="background: #ADCCFFA6;">pir-topology.yml</mark>
+This is the lab topology diagram:
+
+![Topology](pictures/pir-topology.png)
 
 Lab is deployed by running the following command:
 ```
