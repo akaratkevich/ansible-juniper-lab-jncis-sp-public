@@ -268,18 +268,20 @@ Lab setup complete with basic configuration
 
 ### Objectives
 
-- Static, aggregate, and generated routes;
-- Configuration and monitoring of static, aggregate, and generated routes;
-- Martian routes and how to add new entries to the default list;
-- Routing instances and their typical uses;
-- Configuration and sharing of routes between routing instances.
+- Static, aggregate, and generated routes
+- Configuration and monitoring of static, aggregate, and generated routes
+- Martian routes and how to add new entries to the default list
+- Routing instances and their typical uses
+- Configuration and sharing of routes between routing instances
+
+---
 
 ## Open Shortest Path First
 This lab covers the learning objectives for OSPF.
 
 This is the lab topology diagram:
 
-![Topology](pictures/pir-topology.png)
+![Topology](pictures/ospf-topology.png)
 
 Lab is deployed by running the following command:
 ```
@@ -291,13 +293,19 @@ Lab is destroyed by running the following command:
 make stop-ospf
 ```
 ### Objectives
+- OSPF protocol operations
+- Purpose of the designated router (DR)
+- OSPF area types
+- Configuration, monitoring, and troubleshooting of OSPF
+
+---
 
 ## Intermediate System to Intermediate System
 This lab covers the learning objectives for ISIS.
 
 This is the lab topology diagram:
 
-![Topology](pictures/pir-topology.png)
+![Topology](pictures/isis-topology.png)
 
 Lab is deployed by running the following command:
 ```
@@ -309,12 +317,15 @@ Lab is destroyed by running the following command:
 make stop-isis
 ```
 ### Objectives
+
+---
+
 ## Border Gateway Protocol
 This lab covers the learning objectives for BGP.
 
 This is the lab topology diagram:
 
-![Topology](pictures/pir-topology.png)
+![Topology](pictures/bgp-topology.png)
 
 Lab is deployed by running the following command:
 ```
@@ -326,12 +337,20 @@ Lab is destroyed by running the following command:
 make stop-bgp
 ```
 ### Objectives
+- Border Gateway Protocol (BGP) operations
+- Common BGP attributes
+- The BGP route selection algorithm
+- BGP peering options and the default route advertisement rules
+- Configuration and monitoring of BGP
+
+---
+
 ## Layer 2 Bridging
 This lab covers the learning objectives for l2.
 
 This is the lab topology diagram:
 
-![Topology](pictures/pir-topology.png)
+![Topology](pictures/l2-topology.png)
 
 Lab is deployed by running the following command:
 ```
@@ -343,12 +362,15 @@ Lab is destroyed by running the following command:
 make stop-l2
 ```
 ### Objectives
+
+---
+
 ## Spanning-Tree Protocols
 This lab covers the learning objectives for STP.
 
 This is the lab topology diagram:
 
-![Topology](pictures/pir-topology.png)
+![Topology](pictures/stp-topology.png)
 
 Lab is deployed by running the following command:
 ```
@@ -360,12 +382,15 @@ Lab is destroyed by running the following command:
 make stop-stp
 ```
 ### Objectives
+
+---
+
 ## Multiprotocol Label Switching
 This lab covers the learning objectives for MPLS.
 
 This is the lab topology diagram:
 
-![Topology](pictures/pir-topology.png)
+![Topology](pictures/mpls-topology.png)
 
 Lab is deployed by running the following command:
 ```
@@ -381,8 +406,18 @@ make stop-mpls
 ---
 ## IPv6
 ### Objectives
+
+---
+
 ## Tunnels
 ### Objectives
+- IP tunneling concepts and applications;
+- Basic operations of generic routing encapsulation (GRE) and IP over IP (IP-IP) tunnels; and
+- Configuration and monitoring of GRE and IP-IP tunnels.
+
+---
+
 ## High Availability
 ### Objectives
 
+---
