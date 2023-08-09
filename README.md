@@ -21,17 +21,13 @@ The labs are broken down by [exam topics](https://www.juniper.net/gb/en/training
 
 Using Makefile, each lab is set up with the appropriate topology and foundational configuration using Containerlab, in conjunction with Ansible and a selection of other scripts and tools. The base configuration includes essential prerequisites like interface descriptions and IP assignments, enabling you to dive directly into the specific learning objectives in question.
 
->PREREQUISITES:
+>PREREQUISITES & ADMINISTRATION:
 >
 > - [Containerlab](https://containerlab.dev/)
 > - [Ansible](https://www.juniper.net/documentation/us/en/software/junos-ansible/ansible/topics/concept/junos-ansible-modules-overview.html)
 > - [Docker images](https://www.redhat.com/en/topics/containers/what-is-docker?sc_cid=7013a0000026OQwAAM&gclid=CjwKCAjw8symBhAqEiwAaTA__FWw8RjodY_dtI7BjNtE4cNU8Lw48xDIH7Qn6Q_X-YUQH4yvjB8bdRoCmBEQAvD_BwE&gclsrc=aw.ds)
 > - [Jinja2](https://pypi.org/project/Jinja2/)
 > - [Expect](https://phoenixnap.com/kb/linux-expect)
-> - Very possible that I may have missed some of the prerequisites as these labs are built in my pre-existing lab environment :)  
-
-
->ADMINISTRATION:
 >
 >Please make sure to verify and update any paths and username referenced in any playbooks, scripts or variables
 
