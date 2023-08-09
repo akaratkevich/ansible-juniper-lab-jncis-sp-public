@@ -476,3 +476,285 @@ inet.0: 7 destinations, 7 routes (7 active, 0 holddown, 0 hidden)
 #### Aggregate and generated routes
 
 Aggregate routes allow you to combine groups of routes with common addresses into a single entry. By combining routes into a single entry, you can decrease the number of route advertisements sent by your device, thus decreasing the size of the routing tables maintained by neighboring devices. A second advantage of advertising a single route prefix that represents all other internal route prefixes is that internal routing instabilities can be hidden from external peers.
+
+##### Scenario 1 - aggregated routes
+
+We will split 172.20.0.0/24 into /29s and assign them to Lo0 on R3
+*Configuration*
+```
+anton@r3# show | compare 
+[edit interfaces lo0 unit 0 family inet]
+        address 10.100.100.3/32 { ... }
++       address 172.20.0.1/29;
++       address 172.20.0.9/29;
++       address 172.20.0.17/29;
++       address 172.20.0.25/29;
++       address 172.20.0.33/29;
++       address 172.20.0.41/29;
++       address 172.20.0.249/29;
++       address 172.20.0.241/29;
++       address 172.20.0.233/29;
+```
+
+This is the current routing table on `r3`
+```
+anton@r3# run show route table inet.0 
+
+inet.0: 21 destinations, 21 routes (21 active, 0 holddown, 0 hidden)
++ = Active Route, - = Last Active, * = Both
+
+10.0.1.0/24        *[Direct/0] 00:05:55
+                    >  via ge-0/0/1.0
+10.0.1.3/32        *[Local/0] 00:05:55
+                       Local via ge-0/0/1.0
+10.100.100.3/32    *[Direct/0] 00:05:55
+                    >  via lo0.0
+172.20.0.0/29      *[Direct/0] 00:00:11
+                    >  via lo0.0
+172.20.0.1/32      *[Local/0] 00:00:11
+                       Local via lo0.0
+172.20.0.8/29      *[Direct/0] 00:00:11
+                    >  via lo0.0
+172.20.0.9/32      *[Local/0] 00:00:11
+                       Local via lo0.0
+172.20.0.16/29     *[Direct/0] 00:00:11
+                    >  via lo0.0
+172.20.0.17/32     *[Local/0] 00:00:11
+                       Local via lo0.0
+172.20.0.24/29     *[Direct/0] 00:00:11
+                    >  via lo0.0
+172.20.0.25/32     *[Local/0] 00:00:11
+                       Local via lo0.0
+172.20.0.32/29     *[Direct/0] 00:00:11
+                    >  via lo0.0
+172.20.0.33/32     *[Local/0] 00:00:11
+                       Local via lo0.0
+172.20.0.40/29     *[Direct/0] 00:00:11
+                    >  via lo0.0
+172.20.0.41/32     *[Local/0] 00:00:11
+                       Local via lo0.0
+172.20.0.232/29    *[Direct/0] 00:00:11
+                    >  via lo0.0
+172.20.0.233/32    *[Local/0] 00:00:11
+                       Local via lo0.0
+172.20.0.240/29    *[Direct/0] 00:00:11
+                    >  via lo0.0
+172.20.0.241/32    *[Local/0] 00:00:11
+                       Local via lo0.0
+172.20.0.248/29    *[Direct/0] 00:00:11
+                    >  via lo0.0
+172.20.0.249/32    *[Local/0] 00:00:11
+                       Local via lo0.0
+```
+
+When aggregating the routes we need to find the closest subnet that will cover all the routes:
+
+Options are: 
+
+*Overly broad aggregation can lead to routing anomalies*
+172.20.0.0/26 - will cover the following: 172.20.0.1 - 62 
+172.20.0.224/27 -  will cover the following: 172.20.0.225 - 254
+
+or:
+
+172.20.0.0/27 - will cover the following: 172.20.0.1 - 30
+172.20.0.240/28  - will cover the following: 172.20.0.241 - 254
+*Configuration*
+```
+anton@r3# show | compare 
+[edit routing-options aggregate]
++ route 172.20.0.0/27;
++ route 172.20.0.240/28;
+
+[edit routing-options aggregate]
+```
+
+
+```
+anton@r3> show route table inet.0 
+
+inet.0: 23 destinations, 23 routes (23 active, 0 holddown, 0 hidden)
++ = Active Route, - = Last Active, * = Both
+
+10.0.1.0/24        *[Direct/0] 00:30:43
+                    >  via ge-0/0/1.0
+10.0.1.3/32        *[Local/0] 00:30:43
+                       Local via ge-0/0/1.0
+10.100.100.3/32    *[Direct/0] 00:30:43
+                    >  via lo0.0
+172.20.0.0/27      *[Aggregate/130] 00:00:17
+                       Reject
+172.20.0.0/29      *[Direct/0] 00:24:59
+                    >  via lo0.0
+172.20.0.1/32      *[Local/0] 00:24:59
+                       Local via lo0.0
+172.20.0.8/29      *[Direct/0] 00:24:59
+                    >  via lo0.0
+172.20.0.9/32      *[Local/0] 00:24:59
+                       Local via lo0.0
+172.20.0.16/29     *[Direct/0] 00:24:59
+                    >  via lo0.0
+172.20.0.17/32     *[Local/0] 00:24:59
+                       Local via lo0.0
+172.20.0.24/29     *[Direct/0] 00:24:59
+                    >  via lo0.0
+172.20.0.25/32     *[Local/0] 00:24:59
+                       Local via lo0.0
+172.20.0.32/29     *[Direct/0] 00:24:59
+                    >  via lo0.0
+172.20.0.33/32     *[Local/0] 00:24:59
+                       Local via lo0.0
+172.20.0.40/29     *[Direct/0] 00:24:59
+                    >  via lo0.0
+172.20.0.41/32     *[Local/0] 00:24:59
+                       Local via lo0.0
+172.20.0.232/29    *[Direct/0] 00:24:59
+                    >  via lo0.0
+172.20.0.233/32    *[Local/0] 00:24:59
+                       Local via lo0.0
+172.20.0.240/28    *[Aggregate/130] 00:00:17
+                       Reject
+172.20.0.240/29    *[Direct/0] 00:24:59
+                    >  via lo0.0
+172.20.0.241/32    *[Local/0] 00:24:59
+                       Local via lo0.0
+172.20.0.248/29    *[Direct/0] 00:24:59
+                    >  via lo0.0
+172.20.0.249/32    *[Local/0] 00:24:59
+                       Local via lo0.0
+
+```
+
+You can see the contributing routes to the aggregate:
+```
+anton@r3> show route table inet.0 protocol aggregate detail 
+
+inet.0: 23 destinations, 23 routes (23 active, 0 holddown, 0 hidden)
+172.20.0.0/27 (1 entry, 1 announced)
+        *Aggregate Preference: 130
+                Next hop type: Reject, Next hop index: 0
+                Address: 0x78992b4
+                Next-hop reference count: 4, key opaque handle: 0x0, non-key opaque handle: 0x0
+                State: <Active Int Ext>
+                Age: 4:08 
+                Validation State: unverified 
+                Task: Aggregate
+                Announcement bits (1): 0-KRT 
+                AS path: I  (LocalAgg)
+                Flags:                  Depth: 0        Active
+                AS path list:
+                AS path: I Refcount: 8
+                Contributing Routes (8):
+                        172.20.0.0/29 proto Direct
+                        172.20.0.1/32 proto Local
+                        172.20.0.8/29 proto Direct
+                        172.20.0.9/32 proto Local
+                        172.20.0.16/29 proto Direct
+                        172.20.0.17/32 proto Local
+                        172.20.0.24/29 proto Direct
+                        172.20.0.25/32 proto Local
+                Thread: junos-main 
+
+172.20.0.240/28 (1 entry, 1 announced)
+        *Aggregate Preference: 130
+                Next hop type: Reject, Next hop index: 0
+                Address: 0x78992b4
+                Next-hop reference count: 4, key opaque handle: 0x0, non-key opaque handle: 0x0
+                State: <Active Int Ext>
+                Age: 4:08 
+                Validation State: unverified 
+                Task: Aggregate
+                Announcement bits (1): 0-KRT 
+                AS path: I  (LocalAgg)
+                Flags:                  Depth: 0        Active
+                AS path list:
+                AS path: I Refcount: 4
+                Contributing Routes (4):
+                        172.20.0.240/29 proto Direct
+                        172.20.0.241/32 proto Local
+                        172.20.0.248/29 proto Direct
+                        172.20.0.249/32 proto Local
+                Thread: junos-main 
+```
+
+
+##### Scenario 2 - aggregated routes redistribution
+
+Although OSPF is not covered in this lab we will set up a quick OSPF between `r2` and `r3` and redistribute the aggregate to see the results
+
+*Configuration*
+```
+anton@r2# run show configuration | match ospf | display set 
+set policy-options policy-statement CONNECTED-TO-OSPF from protocol direct
+set policy-options policy-statement CONNECTED-TO-OSPF then accept
+set protocols ospf area 0.0.0.0 interface ge-0/0/1.0
+set protocols ospf export CONNECTED-TO-OSPF
+```
+
+*Configuration*
+```
+anton@r3# run show configuration | match ospf | display set 
+set policy-options policy-statement AGGREGATE-TO-OSPF from protocol aggregate
+set policy-options policy-statement AGGREGATE-TO-OSPF then accept
+set protocols ospf area 0.0.0.0 interface ge-0/0/1.0
+set protocols ospf export AGGREGATE-TO-OSPF
+```
+
+
+```
+anton@r2> show ospf neighbor          
+Address          Interface              State           ID               Pri  Dead
+10.0.1.3         ge-0/0/1.0             Full            10.100.100.3     128    37
+
+anton@r2> show route protocol ospf    
+
+inet.0: 10 destinations, 10 routes (10 active, 0 holddown, 0 hidden)
++ = Active Route, - = Last Active, * = Both
+
+172.20.0.0/27      *[OSPF/150] 00:00:41, metric 0, tag 0
+                    >  to 10.0.1.3 via ge-0/0/1.0
+172.20.0.240/28    *[OSPF/150] 00:00:41, metric 0, tag 0
+                    >  to 10.0.1.3 via ge-0/0/1.0
+224.0.0.5/32       *[OSPF/10] 00:04:04, metric 1
+                       MultiRecv
+
+mgmt_junos.inet.0: 3 destinations, 3 routes (3 active, 0 holddown, 0 hidden)
+
+inet6.0: 1 destinations, 1 routes (1 active, 0 holddown, 0 hidden)
+
+anton@r2> 
+```
+
+
+```
+anton@r3> show route protocol ospf 
+
+inet.0: 27 destinations, 27 routes (27 active, 0 holddown, 0 hidden)
++ = Active Route, - = Last Active, * = Both
+
+10.0.0.0/24        *[OSPF/150] 00:02:34, metric 0, tag 0
+                    >  to 10.0.1.2 via ge-0/0/1.0
+10.20.20.0/24      *[OSPF/150] 00:02:34, metric 0, tag 0
+                    >  to 10.0.1.2 via ge-0/0/1.0
+10.100.100.2/32    *[OSPF/150] 00:02:34, metric 0, tag 0
+                    >  to 10.0.1.2 via ge-0/0/1.0
+224.0.0.5/32       *[OSPF/10] 00:10:13, metric 1
+                       MultiRecv
+
+mgmt_junos.inet.0: 3 destinations, 3 routes (3 active, 0 holddown, 0 hidden)
+
+inet6.0: 1 destinations, 1 routes (1 active, 0 holddown, 0 hidden)
+```
+
+As a result with static default route on `r1` towards `r2` and OSPF between `r2` and `r3` redistributing direct routes from `r2` to `r3` and aggregate routes from `r3` to `r2` we have a reachability between `r1` and loopbacks on `r3` (*that were aggregated*)
+
+```
+anton@r1> ping 172.20.0.1 
+PING 172.20.0.1 (172.20.0.1): 56 data bytes
+64 bytes from 172.20.0.1: icmp_seq=0 ttl=63 time=1.441 ms
+64 bytes from 172.20.0.1: icmp_seq=1 ttl=63 time=1.257 ms
+^C
+--- 172.20.0.1 ping statistics ---
+2 packets transmitted, 2 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 1.257/1.349/1.441/0.092 ms
+```
