@@ -90,7 +90,7 @@ This lab covers the learning objectives for BGP.
 > NOTE:
 > This lab uses exaBGP that peers with `r3` to generate 172.16.%d.0/24 networks. Only requirement is to build the Docker image prior to deploying the lab. All files are located in ./docker folder. The Docker image is built from that folder with the following command:  docker build -t bgp-isp .
 
-eBGP peering with `r3` and `isp1` is part of the base config and deployed when the lab starts. The routes should be received on `r3` but not accepted yet, leaving the options of required filtering to the actual labs.
+eBGP peering with `r3` and `isp1` is part of the base config and deployed when the lab starts. The routes should be received on `r3` but not filtered.
 ```
 anton@r3> show bgp summary                                    
 Threading mode: BGP I/O
