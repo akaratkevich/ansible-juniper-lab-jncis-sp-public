@@ -80,6 +80,11 @@ This is the lab topology diagram:
 
 ## Border Gateway Protocol
 
+This lab covers the learning objectives for BGP Routing.
+
+This is the lab topology diagram:
+
+![Topology](pictures/bgp-topology.png)
 ---
 
 ## Layer 2 Bridging
