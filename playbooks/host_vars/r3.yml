@@ -16,5 +16,9 @@ ip_lo: 10.255.255.3/32
 
 # ISIS VARS
 # BGP VARS
+as_local: 65001
+isp_peer: 65000
+local_peer_address: 10.0.0.17
+isp_peer_address: 10.0.0.18
 # OSPF VARS
 # MPLS VARS

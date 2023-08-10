@@ -1,4 +1,4 @@
-name: 3x-vmx (PIR topology R1, R2, R3)
+name: 3x-vmx (ISIS topology R1, R2, R3)
 prefix: ""
 
 mgmt:

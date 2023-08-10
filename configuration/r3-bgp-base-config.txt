@@ -1,0 +1,12 @@
+set interfaces ge-0/0/2 description "Link from R3 to R2"
+set interfaces ge-0/0/2 unit 0 family inet address 10.0.0.10/30
+set interfaces lo0 unit 0 family inet address 10.255.255.3/32
+set interfaces ge-0/0/3 description "Link to ISP"
+set interfaces ge-0/0/3 unit 0 family inet address 10.0.0.17/30
+set routing-options router-id 10.255.255.3
+set routing-options autonomous-system 65001
+set protocols bgp group BGP-EXT type external
+set protocols bgp group BGP-EXT local-address 10.0.0.17
+set protocols bgp group BGP-EXT peer-as 65000
+set protocols bgp group BGP-EXT neighbor 10.0.0.18
+

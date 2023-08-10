@@ -85,11 +85,43 @@ This is the lab topology diagram:
 
 ## Border Gateway Protocol
 
-This lab covers the learning objectives for BGP Routing.
+This lab covers the learning objectives for BGP.
+
+> NOTE:
+> This lab uses exaBGP that peers with `r3` to generate 172.16.%d.0/24 networks. Only requirement is to build the Docker image prior to deploying the lab. All files are located in ./docker folder. The Docker image is built from that folder with the following command:  docker build -t bgp-isp .
+
+eBGP peering with `r3` and `isp1` is part of the base config and deployed when the lab starts. The routes should be received on `r3` but not accepted yet, leaving the options of required filtering to the actual labs.
+```
+anton@r3> show bgp summary                                    
+Threading mode: BGP I/O
+Default eBGP mode: advertise - accept, receive - accept
+Groups: 1 Peers: 1 Down peers: 0
+Table          Tot Paths  Act Paths Suppressed    History Damp State    Pending
+inet.0               
+                     255        255          0          0          0          0
+Peer                     AS      InPkt     OutPkt    OutQ   Flaps Last Up/Dwn State|#Active/Received/Accepted/Damped...
+10.0.0.18             65000          8          6       0       0        2:01 Establ
+  inet.0: 255/255/255/0
+
+anton@r3> show route receive-protocol bgp 10.0.0.18 hidden    
+
+inet.0: 260 destinations, 260 routes (260 active, 0 holddown, 0 hidden)
+
+```
 
 This is the lab topology diagram:
 
 ![Topology](pictures/bgp-topology.png)
+
+Lab is deployed by running the following command:
+```
+make start-bgp
+```
+
+Lab is destroyed by running the following command:
+```
+make stop-bgp
+```
 ---
 
 ## Layer 2 Bridging

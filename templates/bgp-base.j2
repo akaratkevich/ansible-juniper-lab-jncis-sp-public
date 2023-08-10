@@ -1,0 +1,28 @@
+{% if hostname == 'r1' %}
+set interfaces ge-0/0/0 description "{{ int_ge0_0_0 }}"
+set interfaces ge-0/0/0 unit 0 family inet address {{ ip_ge0_0_0 }}
+set interfaces ge-0/0/1 description "{{ int_ge0_0_1 }}"
+set interfaces ge-0/0/1 unit 0 family inet address {{ ip_ge0_0_1 }}
+set interfaces lo0 unit 0 family inet address {{ ip_lo }}
+{% elif hostname == 'r2' %}
+set interfaces ge-0/0/0 description "{{ int_ge0_0_0 }}"
+set interfaces ge-0/0/0 unit 0 family inet address {{ ip_ge0_0_0 }}
+set interfaces ge-0/0/1 description "{{ int_ge0_0_1}}"
+set interfaces ge-0/0/1 unit 0 family inet address {{ ip_ge0_0_1 }}
+set interfaces ge-0/0/2 description "{{ int_ge0_0_2 }}"
+set interfaces ge-0/0/2 unit 0 family inet address {{ ip_ge0_0_2 }}
+set interfaces lo0 unit 0 family inet address {{ ip_lo }}
+{% elif hostname == 'r3' %}
+set interfaces ge-0/0/2 description "{{ int_ge0_0_2 }}"
+set interfaces ge-0/0/2 unit 0 family inet address {{ ip_ge0_0_2 }}
+set interfaces lo0 unit 0 family inet address {{ ip_lo }}
+set interfaces ge-0/0/3 description "{{ int_ge0_0_3 }}"
+set interfaces ge-0/0/3 unit 0 family inet address {{ ip_ge0_0_3 }}
+set routing-options router-id {{ ip_lo.split('/')[0] }}
+set routing-options autonomous-system {{ as_local }}
+set protocols bgp group BGP-EXT type external
+set protocols bgp group BGP-EXT local-address {{ local_peer_address }}
+set protocols bgp group BGP-EXT peer-as {{ isp_peer }}
+set protocols bgp group BGP-EXT neighbor {{ isp_peer_address }}
+{% endif %}
+

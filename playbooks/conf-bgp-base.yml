@@ -1,0 +1,19 @@
+---
+- name: Load and commit base configuration
+  hosts: vr-vmx
+  gather_facts: false
+  connection: local
+
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: Load configuration from a local file and commit
+      juniper_junos_config:
+        load: merge
+        format: set
+        src: "./configuration/{{ inventory_hostname.split('.')[0] }}-bgp-base-config.txt"
+      register: response
+
+    - name: Print the response
+      debug:
+        var: response
