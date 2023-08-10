@@ -76,6 +76,11 @@ This is the lab topology diagram:
 
 ## Intermediate System to Intermediate System
 
+This lab covers the learning objectives for ISIS Routing.
+
+This is the lab topology diagram:
+
+![Topology](pictures/isis-topology.png)
 ---
 
 ## Border Gateway Protocol
