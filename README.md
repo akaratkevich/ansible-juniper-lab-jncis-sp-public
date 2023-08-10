@@ -106,7 +106,6 @@ Peer                     AS      InPkt     OutPkt    OutQ   Flaps Last Up/Dwn St
 anton@r3> show route receive-protocol bgp 10.0.0.18 hidden    
 
 inet.0: 260 destinations, 260 routes (260 active, 0 holddown, 0 hidden)
-
 ```
 
 This is the lab topology diagram:
@@ -122,6 +121,16 @@ Lab is destroyed by running the following command:
 ```
 make stop-bgp
 ```
+### Objectives
+- BGP basic operation
+- BGP message types
+- Attributes
+- Route/path selection process
+- Internal and external BGP (IBGP and EBGP) functionality and interaction
+- Groups and peers
+- Additional basic options
+- Routing policy application
+
 ---
 
 ## Layer 2 Bridging
