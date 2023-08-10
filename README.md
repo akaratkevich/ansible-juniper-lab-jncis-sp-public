@@ -67,14 +67,29 @@ make stop-pir
 
 ## Open Shortest Path First
 
+This lab covers the learning objectives for OSPF Routing.
+
+This is the lab topology diagram:
+
+![Topology](pictures/ospf-topology.png)
 ---
 
 ## Intermediate System to Intermediate System
 
+This lab covers the learning objectives for ISIS Routing.
+
+This is the lab topology diagram:
+
+![Topology](pictures/isis-topology.png)
 ---
 
 ## Border Gateway Protocol
 
+This lab covers the learning objectives for BGP Routing.
+
+This is the lab topology diagram:
+
+![Topology](pictures/bgp-topology.png)
 ---
 
 ## Layer 2 Bridging
