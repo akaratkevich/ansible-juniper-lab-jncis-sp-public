@@ -1,11 +1,20 @@
 ---
 hostname: r2
 
-# general vars
+# INTERFACE VARS
 int_ge0_0_0: "Link from R2 to R1 - primary"
-int_ge0_0_2: "link from R2 to R1 - secondary"
-int_ge0_0_1: "Link from R2 to R3"
-ip_ge0_0_0: 10.0.0.2/24
-ip_ge0_0_1: 10.0.1.2/24
-ip_ge0_0_2: 10.20.20.2/24
-ip_lo: 10.100.100.2/32
+ip_ge0_0_0: 10.0.0.2/30
+int_ge0_0_1: "Link from R2 to R1 - secondary"
+ip_ge0_0_1: 10.0.0.6/30
+int_ge0_0_2: "Link from R2 to R3"
+ip_ge0_0_2: 10.0.0.9/30
+int_ge0_0_3:
+ip_ge0_0_3:
+int_ge0_0_4:
+ip_ge0_0_4:
+ip_lo: 10.255.255.2/32
+
+# ISIS VARS
+# BGP VARS
+# OSPF VARS
+# MPLS VARS

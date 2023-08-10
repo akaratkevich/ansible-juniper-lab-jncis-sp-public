@@ -1,18 +1,18 @@
 ---
-hostname: r3
+hostname: r4
 
 # INTERFACE VARS
 int_ge0_0_0: 
 ip_ge0_0_0: 
 int_ge0_0_1: 
 ip_ge0_0_1: 
-int_ge0_0_2: "Link from R3 to R2"
-ip_ge0_0_2: 10.0.0.10/30
-int_ge0_0_3: "Link to ISP"
-ip_ge0_0_3: 10.0.0.17/30
+int_ge0_0_2: "Link from R4 to R1"
+ip_ge0_0_2: 10.0.0.14/30
+int_ge0_0_3:
+ip_ge0_0_3:
 int_ge0_0_4:
 ip_ge0_0_4:
-ip_lo: 10.255.255.3/32
+ip_lo: 10.255.255.4/32
 
 # ISIS VARS
 # BGP VARS
