@@ -13,16 +13,16 @@ The intention is to create a series of readily available labs, encompassing all 
 
 The labs are broken down by [exam topics](https://www.juniper.net/gb/en/training/certification/tracks/service-provider-routing-switching/jncis-sp.html)
 
-- [Protocol-Independent Routing](#protocol-independent-routing)
-- [Open Shortest Path First (OSPF)](#open-shortest-path-first)
-- [Intermediate System to Intermediate System (IS-IS)](#intermediate-system-to-intermediate-system)
-- [Border Gateway Protocol (BGP)](#border-gateway-protocol)
-- [Layer 2 Bridging or VLANs](#layer-2-bridging)
-- [Spanning-Tree Protocols](#spanning-tree-protocols)
-- [Multiprotocol Label Switching (MPLS)](#multiprotocol-label-switching)
-- [IPv6](#ipv6)
-- [Tunnels](#tunnels)
-- [High Availability](#high-availability)
+- ![Static Badge](https://img.shields.io/badge/IN_PROGRESS-orange) [Protocol-Independent Routing](#protocol-independent-routing) 
+- ![Static Badge](https://img.shields.io/badge/NOT_STARTED-red) [Open Shortest Path First (OSPF)](#open-shortest-path-first) 
+- ![Static Badge](https://img.shields.io/badge/NOT_STARTED-red) [Intermediate System to Intermediate System (IS-IS)](#intermediate-system-to-intermediate-system) 
+- ![Static Badge](https://img.shields.io/badge/NOT_STARTED-red) [Border Gateway Protocol (BGP)](#border-gateway-protocol) 
+- ![Static Badge](https://img.shields.io/badge/NOT_STARTED-red) [Layer 2 Bridging or VLANs](#layer-2-bridging) 
+- ![Static Badge](https://img.shields.io/badge/NOT_STARTED-red) [Spanning-Tree Protocols](#spanning-tree-protocols) 
+- ![Static Badge](https://img.shields.io/badge/NOT_STARTED-red) [Multiprotocol Label Switching (MPLS)](#multiprotocol-label-switching) 
+- ![Static Badge](https://img.shields.io/badge/NOT_STARTED-red) [IPv6](#ipv6) 
+- ![Static Badge](https://img.shields.io/badge/NOT_STARTED-red) [Tunnels](#tunnels) 
+- ![Static Badge](https://img.shields.io/badge/NOT_STARTED-red) [High Availability](#high-availability) 
 
 Using Makefile, each lab is set up with the appropriate topology and foundational configuration using Containerlab, in conjunction with Ansible and a selection of other scripts and tools. The base configuration includes essential prerequisites like interface descriptions and IP assignments, enabling you to dive directly into the specific learning objectives in question.
 
