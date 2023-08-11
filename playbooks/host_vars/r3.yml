@@ -2,16 +2,16 @@
 hostname: r3
 
 # INTERFACE VARS
-int_ge0_0_0: 
+int_ge0_0_0: "Link from R3 to C2"
 ip_ge0_0_0: 
-int_ge0_0_1: 
+int_ge0_0_1: "Link from R3 to C3"
 ip_ge0_0_1: 
-int_ge0_0_2: "Link from R3 to R2"
+int_ge0_0_2: "Link from R3 to R2 - primary"
 ip_ge0_0_2: 10.0.0.10/30
 int_ge0_0_3: "Link to ISP"
 ip_ge0_0_3: 10.0.0.17/30
-int_ge0_0_4:
-ip_ge0_0_4:
+int_ge0_0_4: "Link from R3 to R2 - secondary"
+ip_ge0_0_4: 10.0.0.22/30
 ip_lo: 10.255.255.3/32
 
 # ISIS VARS

@@ -8,9 +8,9 @@ int_ge0_0_1: "Link from R1 to R2 - secondary"
 ip_ge0_0_1: 10.0.0.5/30
 int_ge0_0_2: "Link from R1 to R4"
 ip_ge0_0_2: 10.0.0.13/30
-int_ge0_0_3:
+int_ge0_0_3: "Link from R1 to C1"
 ip_ge0_0_3:
-int_ge0_0_4:
+int_ge0_0_4: "Link from R1 to C4"
 ip_ge0_0_4:
 ip_lo: 10.255.255.1/32
 
