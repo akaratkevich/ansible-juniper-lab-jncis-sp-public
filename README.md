@@ -144,6 +144,12 @@ make stop-bgp
 
 ## Multiprotocol Label Switching
 
+This lab covers the learning objectives for MPLS Routing.
+
+This is the lab topology diagram:
+
+![Topology](pictures/mpls-topology.png)
+
 ---
 
 ## IPv6
