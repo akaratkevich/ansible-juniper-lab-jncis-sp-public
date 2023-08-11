@@ -136,6 +136,12 @@ make stop-bgp
 
 ## Layer 2 Bridging
 
+This lab covers the learning objectives for L2.
+
+This is the lab topology diagram:
+
+![Topology](pictures/l2-topology.png)
+
 ---
 
 ## Spanning-Tree Protocols
