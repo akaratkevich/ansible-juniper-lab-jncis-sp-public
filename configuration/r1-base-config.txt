@@ -3,4 +3,7 @@ set interfaces ge-0/0/0 unit 0 family inet address 10.0.0.1/30
 set interfaces ge-0/0/1 description "Link from R1 to R2 - secondary"
 set interfaces ge-0/0/1 unit 0 family inet address 10.0.0.5/30
 set interfaces lo0 unit 0 family inet address 10.255.255.1/32
-
+set routing-options static route 10.255.255.2/32 next-hop 10.0.0.2
+set routing-options static route 10.255.255.2/32 qualified-next-hop 10.0.0.6 preference 6
+set routing-options static route 0.0.0.0/0 next-hop 10.0.0.2
+set routing-options static route 0.0.0.0/0 next-hop 10.0.0.6

@@ -4,6 +4,10 @@ set interfaces ge-0/0/0 unit 0 family inet address {{ ip_ge0_0_0 }}
 set interfaces ge-0/0/1 description "{{ int_ge0_0_1 }}"
 set interfaces ge-0/0/1 unit 0 family inet address {{ ip_ge0_0_1 }}
 set interfaces lo0 unit 0 family inet address {{ ip_lo }}
+set routing-options static route {{ hostvars['r2']['ip_lo'] }} next-hop {{ hostvars['r2']['ip_ge0_0_0'].split('/')[0] }}
+set routing-options static route {{ hostvars['r2']['ip_lo'] }} qualified-next-hop {{ hostvars['r2']['ip_ge0_0_1'].split('/')[0] }} preference 6
+set routing-options static route 0.0.0.0/0 next-hop {{ hostvars['r2']['ip_ge0_0_0'].split('/')[0] }}
+set routing-options static route 0.0.0.0/0 next-hop {{ hostvars['r2']['ip_ge0_0_1'].split('/')[0] }}
 {% elif hostname == 'r2' %}
 set interfaces ge-0/0/0 description "{{ int_ge0_0_0 }}"
 set interfaces ge-0/0/0 unit 0 family inet address {{ ip_ge0_0_0 }}
@@ -12,9 +16,28 @@ set interfaces ge-0/0/1 unit 0 family inet address {{ ip_ge0_0_1 }}
 set interfaces ge-0/0/2 description "{{ int_ge0_0_2 }}"
 set interfaces ge-0/0/2 unit 0 family inet address {{ ip_ge0_0_2 }}
 set interfaces lo0 unit 0 family inet address {{ ip_lo }}
+set policy-options policy-statement CONNECTED-TO-OSPF from protocol direct
+set policy-options policy-statement CONNECTED-TO-OSPF then accept
+set protocols ospf area 0.0.0.0 interface ge-0/0/2.0
+set protocols ospf export CONNECTED-TO-OSPF
 {% elif hostname == 'r3' %}
 set interfaces ge-0/0/2 description "{{ int_ge0_0_2 }}"
 set interfaces ge-0/0/2 unit 0 family inet address {{ ip_ge0_0_2 }}
 set interfaces lo0 unit 0 family inet address {{ ip_lo }}
+set interfaces lo0 unit 0 family inet address 172.20.0.1/29
+set interfaces lo0 unit 0 family inet address 172.20.0.9/29
+set interfaces lo0 unit 0 family inet address 172.20.0.17/29
+set interfaces lo0 unit 0 family inet address 172.20.0.25/29
+set interfaces lo0 unit 0 family inet address 172.20.0.33/29
+set interfaces lo0 unit 0 family inet address 172.20.0.41/29
+set interfaces lo0 unit 0 family inet address 172.20.0.249/29
+set interfaces lo0 unit 0 family inet address 172.20.0.241/29
+set interfaces lo0 unit 0 family inet address 172.20.0.233/29
+set routing-options aggregate route 172.20.0.0/27
+set routing-options aggregate route 172.20.0.240/28
+set routing-options generate route 0.0.0.0/0 
+set policy-options policy-statement AGGREGATE-TO-OSPF from protocol aggregate
+set policy-options policy-statement AGGREGATE-TO-OSPF then accept
+set protocols ospf area 0.0.0.0 interface ge-0/0/2.0
+set protocols ospf export AGGREGATE-TO-OSPF
 {% endif %}
-

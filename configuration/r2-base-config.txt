@@ -2,7 +2,10 @@ set interfaces ge-0/0/0 description "Link from R2 to R1 - primary"
 set interfaces ge-0/0/0 unit 0 family inet address 10.0.0.2/30
 set interfaces ge-0/0/1 description "Link from R2 to R1 - secondary"
 set interfaces ge-0/0/1 unit 0 family inet address 10.0.0.6/30
-set interfaces ge-0/0/2 description "Link from R2 to R3"
+set interfaces ge-0/0/2 description "Link from R2 to R3 - primary"
 set interfaces ge-0/0/2 unit 0 family inet address 10.0.0.9/30
 set interfaces lo0 unit 0 family inet address 10.255.255.2/32
-
+set policy-options policy-statement CONNECTED-TO-OSPF from protocol direct
+set policy-options policy-statement CONNECTED-TO-OSPF then accept
+set protocols ospf area 0.0.0.0 interface ge-0/0/2.0
+set protocols ospf export CONNECTED-TO-OSPF
