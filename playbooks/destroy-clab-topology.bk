@@ -3,12 +3,14 @@
   hosts: localhost
   gather_facts: false
   become: true
-  vars_files:
-    - secret.yml
+  vars_prompt:
+    - name: ansible_become_password
+      prompt: "Enter the sudo password"
+      private: yes
 
   tasks:
     - name: Run clab destroy command
-      ansible.builtin.shell: "clab destroy -t {{ topology_path }} --cleanup"
+      ansible.builtin.shell: "sudo -S clab destroy -t {{ topology_path }} --cleanup"
       environment:
         SUDO_PASS: "{{ ansible_become_password }}"
           #no_log: true

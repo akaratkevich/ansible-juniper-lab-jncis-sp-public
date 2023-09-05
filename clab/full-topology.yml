@@ -1,0 +1,48 @@
+name: 3x-vmx (PIR topology R1, R2, R3)
+prefix: ""
+
+mgmt:
+  network: lab_1
+  ipv4-subnet: 172.100.1.0/24
+
+topology:
+  kinds:
+    vr-vmx:
+      image: vrnetlab/vr-vmx:22.3R1.11
+
+  nodes:
+    r1:
+      kind: vr-vmx
+      mgmt-ipv4: 172.100.1.2
+    r2:
+      kind: vr-vmx
+      mgmt-ipv4: 172.100.1.3
+    r3:
+      kind: vr-vmx
+      mgmt-ipv4: 172.100.1.4
+
+  links:
+  - type: veth
+    endpoints:
+      - node: r1
+        interface: eth1
+      - node: r2
+        interface: eth1
+  - type: veth
+    endpoints:
+      - node: r1
+        interface: eth2
+      - node: r2
+        interface: eth2
+  - type: veth
+    endpoints:
+      - node: r2
+        interface: eth3
+      - node: r3
+        interface: eth3
+  - type: host
+    endpoint:
+        node: r1
+        interface: eth3
+    host-interface: r1-out
+

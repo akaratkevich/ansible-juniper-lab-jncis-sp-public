@@ -1,3 +1,4 @@
 configuration/sshRSA.cfg
 configuration/sshRSA.txt
 playbooks/clab*
+playbooks/secret*
