@@ -1,0 +1,9 @@
+
+# Ansible collections (ansible-galaxy collection list)
+collections:
+  - name: juniper.device
+    version: 1.0.2
+
+  - name: junipernetworks.junos
+    version: 5.2.0
+
